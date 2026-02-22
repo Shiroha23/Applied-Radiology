@@ -1,5 +1,8 @@
 package com.shiroha23.appradi;
 
+import appeng.api.upgrades.Upgrades;
+import appeng.core.definitions.AEItems;
+import appeng.core.localization.GuiText;
 import appeng.items.storage.StorageTier;
 import me.ramidzkh.mekae2.AMItems;
 import net.minecraft.core.registries.Registries;
@@ -8,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -41,5 +45,14 @@ public class Appradi {
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
+
+        modEventBus.addListener((FMLCommonSetupEvent event) -> event.enqueueWork(this::initializeUpgrades));
+    }
+
+    private void initializeUpgrades() {
+        var storageCellGroup = GuiText.StorageCells.getTranslationKey();
+
+        Upgrades.add(AEItems.INVERTER_CARD, RADIOACTIVE_CHEMICAL_STORAGE_CELL::get, 1, storageCellGroup);
+        Upgrades.add(AEItems.VOID_CARD, RADIOACTIVE_CHEMICAL_STORAGE_CELL::get, 1, storageCellGroup);
     }
 }
