@@ -5,7 +5,7 @@
       "item": "mekanism:structural_glass"
     },
     "b": {
-      "tag": "forge:dusts/lead"
+      "tag": "c:dusts/lead"
     },
     "c": {
       "item": "ae2:cell_component_256k"
@@ -21,6 +21,6 @@
   ],
   "result": {
     "count": 1,
-    "item": "appradi:radioactive_chemical_storage_cell"
+    "id": "appradi:radioactive_chemical_storage_cell"
   }
 }

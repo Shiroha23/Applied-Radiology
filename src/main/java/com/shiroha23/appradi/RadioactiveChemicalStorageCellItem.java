@@ -11,9 +11,8 @@ import net.minecraft.world.level.ItemLike;
 
 public class RadioactiveChemicalStorageCellItem extends BasicStorageCell {
 
-    public RadioactiveChemicalStorageCellItem(Properties properties, StorageTier tier, ItemLike housingItem) {
-        super(properties, tier.componentSupplier().get(), housingItem, tier.idleDrain(), tier.bytes() / 1024,
-            tier.bytes() / 128, 1, MekanismKeyType.TYPE);
+    public RadioactiveChemicalStorageCellItem(Properties properties, StorageTier tier) {
+        super(properties, tier.idleDrain(), tier.bytes() / 1024, tier.bytes() / 128, 1, MekanismKeyType.TYPE);
     }
 
     @Override
